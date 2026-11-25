@@ -1,0 +1,240 @@
+
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #dbeafe, #eff6ff);
+    min-height: 100vh;
+    padding: 30px 15px;
+    color: #333;
+}
+
+/* Main Heading */
+h1 {
+    text-align: center;
+    color: #1e3a8a;
+    margin-bottom: 30px;
+}
+
+h2 {
+    text-align: center;
+    color: #1e40af;
+    margin-bottom: 20px;
+}
+
+/* Sections */
+section {
+    background: white;
+    padding: 30px;
+    margin: 25px auto;
+    max-width: 480px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+label {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    outline: none;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #2563eb;
+}
+
+/* Buttons */
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 7px;
+    background: #2563eb;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+p {
+    text-align: center;
+    margin-top: 18px;
+}
+
+a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Employee Dashboard */
+#systemSection {
+    display: none;
+    max-width: 1100px;
+}
+
+#systemSection form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+#systemSection form button {
+    grid-column: span 2;
+}
+
+/* Employee Table */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+}
+
+th, td {
+    padding: 13px;
+    border: 1px solid #ddd;
+    text-align: center;
+    white-space: nowrap;
+}
+
+th {
+    background: #1e40af;
+    color: white;
+}
+
+tbody tr:hover {
+    background: #eff6ff;
+}
+
+/* Employee Avatar */
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Status Badges */
+.badge {
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    color: white;
+}
+
+.badge.Pending {
+    background: orange;
+}
+
+.badge.Verified {
+    background: green;
+}
+
+.badge.Failed {
+    background: red;
+}
+
+/* Action Buttons */
+button.action {
+    padding: 7px 10px;
+    margin: 3px;
+    font-size: 12px;
+}
+
+.verify {
+    background: #16a34a;
+}
+
+.fail {
+    background: #dc2626;
+}
+
+.delete {
+    background: #64748b;
+}
+
+.verify:hover {
+    background: #15803d;
+}
+
+.fail:hover {
+    background: #b91c1c;
+}
+
+.delete:hover {
+    background: #475569;
+}
+
+/* Logout Button */
+#systemSection > p button {
+    background: #475569;
+    width: 150px;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px 10px;
+    }
+
+    h1 {
+        font-size: 23px;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    #systemSection form {
+        grid-template-columns: 1fr;
+    }
+
+    #systemSection form button {
+        grid-column: span 1;
+    }
+
+    th, td {
+        padding: 9px;
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Employee Background Verification Application">
+
+  <title>Employee Background Check Application</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <h1>Employee Background Application</h1>
+
+  <!-- Registration Section -->
+  <section id="registerSection">
+
+    <h2>Register</h2>
+
+    <form id="registerForm">
+
+      <div class="input-group">
+        <label for="regName">Full Name</label>
+        <input
+          type="text"
+          id="regName"
+          placeholder="Enter your full name"
+          autocomplete="name"
+          required
+        >
+      </div>
+
+      <div class="input-group">
+        <label for="regEmail">Email</label>
+        <input
+          type="email"
+          id="regEmail"
+          placeholder="Enter your email"
+          autocomplete="email"
+          required
+        >
+      </div>
+
+      <div class="input-group">
+        <label for="regPassword">Password</label>
+        <input
+          type="password"
+          id="regPassword"
+          placeholder="Enter password"
+          minlength="8"
+          autocomplete="new-password"
+          required
+        >
+      </div>
+
+      <button type="submit">Register</button>
+
+    </form>
+
+    <p>
+      Already have an account?
+      <a href="#" onclick="showLogin(); return false;">Login here</a>
+    </p>
+
+  </section>
+
+  <!-- Login Section -->
+  <section id="loginSection" style="display: none;">
+
+    <h2>Login</h2>
+
+    <form id="loginForm">
+
+      <div class="input-group">
+        <label for="loginEmail">Email</label>
+        <input
+          type="email"
+          id="loginEmail"
+          placeholder="Enter your email"
+          autocomplete="email"
+          required
+        >
+      </div>
+
+      <div class="input-group">
+        <label for="loginPassword">Password</label>
+        <input
+          type="password"
+          id="loginPassword"
+          placeholder="Enter password"
+          autocomplete="current-password"
+          required
+        >
+      </div>
+
+      <button type="submit">Login</button>
+
+    </form>
+
+    <p>
+      Don't have an account?
+      <a href="#" onclick="showRegister(); return false;">
+        Register here
+      </a>
+    </p>
+
+  </section>
+
+  <!-- Employee Management Section -->
+  <section id="systemSection">
+
+    <h2>Add Employee</h2>
+
+    <form id="employeeForm">
+
+      <input
+        type="text"
+        id="name"
+        placeholder="Employee Full Name"
+        required
+      >
+
+      <input
+        type="email"
+        id="email"
+        placeholder="Employee Email"
+        required
+      >
+
+      <input
+        type="tel"
+        id="phone"
+        placeholder="Phone Number"
+      >
+
+      <input
+        type="text"
+        id="position"
+        placeholder="Job Position"
+      >
+
+      <input
+        type="text"
+        id="company"
+        placeholder="Previous Company"
+      >
+
+      <input
+        type="text"
+        id="education"
+        placeholder="Education Details"
+      >
+
+      <button type="submit">Add Employee</button>
+
+    </form>
+
+    <h2>Employee List</h2>
+
+    <div class="table-container">
+
+      <table id="employeeTable">
+
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Avatar</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody></tbody>
+
+      </table>
+
+    </div>
+
+    <p>
+      <button type="button" onclick="logout()">Logout</button>
+    </p>
+
+  </section>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
