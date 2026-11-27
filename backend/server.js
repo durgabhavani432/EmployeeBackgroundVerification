@@ -1,8 +1,11 @@
+
 console.log("MY BACKEND SERVER FILE IS RUNNING");
+
 require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 
@@ -14,19 +17,16 @@ const authRoutes = require('./routes/authRoutes');
 const employeeRoutes = require('./routes/employeeRoutes');
 const documentRoutes = require('./routes/documentRoutes');
 
-// Register routes
+// Register API routes
 app.use('/api/auth', authRoutes);
 app.use('/api/employees', employeeRoutes);
 app.use('/api/employees', documentRoutes);
+
 app.get('/api/employees/test', (req, res) => {
     res.send('Document route registered successfully!');
 });
 
-// Test routes
-app.get('/', (req, res) => {
-    res.send('Employee Background Check API is running!');
-});
-
+// Database test
 app.get('/db-test', async (req, res) => {
     try {
         const db = require('./config/db');
@@ -36,14 +36,40 @@ app.get('/db-test', async (req, res) => {
             message: 'MySQL connected successfully!',
             data: result
         });
+
     } catch (error) {
-        console.error(error);
+        console.error('DATABASE ERROR:', error);
+
         res.status(500).json({
             message: 'Database connection failed'
         });
     }
 });
 
+// React frontend build folder
+const frontendPath = path.join(
+    __dirname,
+    '../frontend/dist'
+);
+
+// Serve React static files
+app.use(express.static(frontendPath));
+
+// Return JSON for unknown API endpoints
+app.use('/api', (req, res) => {
+    res.status(404).json({
+        message: 'API endpoint not found'
+    });
+});
+
+// React Router fallback (Express 5)
+app.get('/{*splat}', (req, res) => {
+    res.sendFile(
+        path.join(frontendPath, 'index.html')
+    );
+});
+
+// Start server
 const PORT = process.env.PORT || 5000;
 
 const server = app.listen(PORT, () => {
